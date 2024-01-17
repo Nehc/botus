@@ -35,7 +35,7 @@ RUN python -m pip install --user --upgrade pip && \
 
 WORKDIR "./${NB_DIR}"
 
-COPY ./src/ ./
+#COPY ./src/ ./
 
 ARG TG_TOKEN=""
 ENV TG_TOKEN="${TG_TOKEN}" 
