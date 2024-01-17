@@ -7,7 +7,7 @@ LABEL maintainer="Nehcy <cibershaman@gmail.com>"
 ARG NB_USER="wald"
 ARG NB_UID="1000"
 ARG NB_GID="100"
-ARG NB_DIR="work"
+ARG NB_DIR="src"
 
 RUN apt-get update --yes && \
     apt-get upgrade --yes && \
