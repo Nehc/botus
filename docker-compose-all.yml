@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  redis:
+    image: redis/redis-stack:latest
+    container_name: redis
+    ports:
+      - 6379:6379
+      - 8001:8001
+    network_mode: bridge
+    stdin_open: true    
+    tty: true
+    restart: always
+  redmine:
+    image: redmine
+    container_name: redmine
+    network_mode: bridge
+    restart: always
+    ports:
+      - 3000:3000
+  redmine-bot:
+    image: nehcy/botus
+    container_name: redmine-bot 
+    command: ["python", "main.py"]
+    build: 
+      context: .
+      args:
+        NB_USER: ${NB_USER}
+    environment:
+      - TG_TOKEN=${TELEGRAM_TOKEN}
+      - READMINE_KEY=${READMINE_KEY}
+    volumes:
+      - ./src:/home/${NB_USER}/src
+    init: true
+    restart: always
+    stdin_open: true    
+    network_mode: bridge
+    tty: true
