@@ -1,0 +1,7 @@
+redmine:
+  url: 'http://devbox:3000/'
+  key: '283d08859887e06b0fdcb685e254c000068e9a28'
+redis:
+  host: devbox
+  port: 6379
+  name: helper
