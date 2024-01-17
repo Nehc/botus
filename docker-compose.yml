@@ -1,8 +1,9 @@
 version: "3.9"
 services:
-  helper:
+  redmine-bot:
     image: nehcy/botus
-    container_name: helper 
+    container_name: redmine-bot 
+    command: ["python", "main.py"]
     build: 
       context: .
       args:
@@ -10,7 +11,6 @@ services:
     environment:
       - TG_TOKEN=${TELEGRAM_TOKEN}
       - READMINE_KEY=${READMINE_KEY}
-    command: ["python", "main.py"]
     volumes:
       - ./src:/home/${NB_USER}/src
     init: true
