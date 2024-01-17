@@ -1,0 +1,4 @@
+pyTelegramBotAPI
+shortuuid
+pyyaml
+munch
