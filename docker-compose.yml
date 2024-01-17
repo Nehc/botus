@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  helper:
+    image: nehcy/botus
+    container_name: helper 
+    build: 
+      context: .
+      args:
+        NB_USER: ${NB_USER}
+    environment:
+      - TG_TOKEN=${TELEGRAM_TOKEN}
+      - READMINE_KEY=${READMINE_KEY}
+    command: ["python", "main.py"]
+    volumes:
+      - ./src:/home/${NB_USER}/src
+    init: true
+    restart: always
+    stdin_open: true    
+    network_mode: bridge
+    tty: true
