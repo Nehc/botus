@@ -21,10 +21,6 @@ services:
     image: nehcy/botus
     container_name: redmine-bot 
     command: ["python", "main.py"]
-    build: 
-      context: .
-      args:
-        NB_USER: ${NB_USER}
     environment:
       - TG_TOKEN=${TELEGRAM_TOKEN}
       - READMINE_KEY=${READMINE_KEY}
