@@ -1,16 +1,17 @@
-коллекция разных tg-ботов.
+### Коллекция разных tg-ботов.
 
-`# Что бы клонировать только одного бота...`
+Что бы клонировать только одного бота...
 
-```bash
+```
 git clone -n --depth=1 --filter=tree:0 https://github.com/Nehc/botus.git
 cd botus && git sparse-checkout set --no-cone redmine-bot && git checkout
 ```
 
-`# Будет скачан тольrо репозиторий бота redmine-bot:`
+Будет скачан репозиторий бота redmine-bot:
 ```
 tree /F /a
-
+```
+```
 \---redmine-bot
     |   .dockerignore
     |   .env.example
