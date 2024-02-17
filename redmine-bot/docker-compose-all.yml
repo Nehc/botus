@@ -25,7 +25,7 @@ services:
       - TG_TOKEN=${TELEGRAM_TOKEN}
       - READMINE_KEY=${READMINE_KEY}
     volumes:
-      - ./src:/home/${NB_USER}/src
+      - ./src:/home/${NB_USER}/wald
     init: true
     restart: always
     stdin_open: true    

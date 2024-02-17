@@ -1,14 +1,19 @@
 version: "3.9"
 services:
   redmine-bot:
-    image: nehcy/botus
+    image: nehcy/redmine-bot
     container_name: redmine-bot 
+    build: 
+      context: .
+      args:
+        NB_DIR: work
+        NB_USER: wald
     command: ["python", "main.py"]
     environment:
       - TG_TOKEN=${TELEGRAM_TOKEN}
       - READMINE_KEY=${READMINE_KEY}
-    volumes:
-      - ./src:/home/${NB_USER}/work
+#    volumes:
+#      - ./src:/home/${NB_USER}/work
     init: true
     restart: always
     stdin_open: true    

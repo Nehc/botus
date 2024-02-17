@@ -1,0 +1,22 @@
+FROM nehcy/botus
+
+ENV DEBIAN_FRONTEND noninteractive
+
+LABEL maintainer="Nehcy <cibershaman@gmail.com>"
+
+ARG NB_USER="wald"
+ARG NB_UID="1000"
+ARG NB_DIR="work"
+
+USER "${NB_UID}"
+
+WORKDIR "/home/${NB_USER}/${NB_DIR}"
+
+COPY ./src/ ./
+
+ARG TG_TOKEN=""
+ENV TG_TOKEN="${TG_TOKEN}" 
+
+# Configure container startup: if not use compose
+# if use doker standalone uncomemnt next
+#CMD ["python", "main.py"]

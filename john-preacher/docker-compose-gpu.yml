@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  prist:
+    image: nehcy/botus:full
+    container_name: prist 
+    command: ["python", "main.py"]
+    environment:
+      - TG_TOKEN=${TELEGRAM_TOKEN}
+    volumes:
+      - ./src:/home/${NB_USER}/work
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 0
+              capabilities: [gpu]
+
+    network_mode: bridge
+    restart: always
+

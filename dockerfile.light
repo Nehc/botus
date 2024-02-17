@@ -27,10 +27,8 @@ WORKDIR "/home/${NB_USER}/"
 
 ENV PATH="$PATH:/home/${NB_USER}/.local/bin"
 
-COPY requirements.txt ./
-
 RUN python -m pip install --user --upgrade pip && \
-    pip install --user -r requirements.txt && \
+    pip install TelegramBotAPI shortuuid pyyaml munch && \
     python -m pip cache purge
 
 WORKDIR "./${NB_DIR}"
@@ -39,3 +37,7 @@ WORKDIR "./${NB_DIR}"
 
 ARG TG_TOKEN=""
 ENV TG_TOKEN="${TG_TOKEN}" 
+
+# Configure container startup: if not use compose
+# if use doker standalone uncomemnt next
+#CMD ["python", "main.py"]
