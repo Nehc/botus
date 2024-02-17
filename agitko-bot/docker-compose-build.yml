@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  agitko:
+    image: nehcy/agitko
+    container_name: AGItko 
+    build: 
+      context: .
+      args:
+        NB_DIR: work
+        NB_USER: wald
+    command: ["python", "main.py"]
+    environment:
+      - TG_TOKEN=${TELEGRAM_TOKEN}
+#    volumes:
+#      - ./src:/home/${NB_USER}/work
+    init: true
+    restart: always
+    stdin_open: true    
+    network_mode: bridge
+    tty: true
