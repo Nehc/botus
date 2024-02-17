@@ -33,10 +33,14 @@ if use_cuda:
     model.cuda()
 if use_fp16:
     model.half()
-    
+
+if not os.path.exists('rst/rst.indx'):
+    from git import Repo
+    Repo.clone_from('https://huggingface.co/Nehc/rst',to_path='rst')  
+      
 rst_ind = AnnoyIndex(1024, metric='angular')
-rst_ind.load('rst.indx')
-rst_df = pandas.read_csv('rst_db.csv')
+rst_ind.load('rst/rst.indx')
+rst_df = pandas.read_csv('rst/rst_db.csv')
 
 bot = telebot.TeleBot(token)
 
