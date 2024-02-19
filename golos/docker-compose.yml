@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  golos:
+    image: nehcy/botus
+    environment:
+      - TG_TOKEN=${TELEGRAM_TOKEN}
+    command: ["python", "main.py"]
+    volumes:
+      - ./src:/home/${NB_USER}/work
+    network_mode: bridge
+    restart: always
